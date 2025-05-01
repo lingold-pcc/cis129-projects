@@ -1,0 +1,9 @@
+"""CIS129 Exercise 9.3"""
+# CIS129
+# Liam Ingold
+# 5/1/2025
+
+import csv
+with open('grades.csv', mode='w', newline='') as grades:
+    writer = csv.writer(grades)
+    writer.writerow(['firstname', 'lastname', 85, 90, 93])
