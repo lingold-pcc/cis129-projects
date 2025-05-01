@@ -1,0 +1,33 @@
+"""CIS129 Exercises 9.1 and 9.2"""
+# CIS129
+# Liam Ingold
+# 5/1/2025
+
+
+
+# writes grades to a plain text file called grades
+with open('grades.txt', mode='w') as grades:
+    grades.write('92\n')
+    grades.write('76\n')
+    grades.write('95\n')
+    grades.write('67\n')
+    grades.write('69\n')
+    grades.write('85\n')
+    grades.write('90\n')
+    grades.write('73\n')
+    grades.write('62\n')
+    grades.write('75\n')
+
+
+# reads from the text file and prints the grades, total, count, and average
+with open('grades.txt', mode='r') as grades:
+	print(f'{"Grades":<10}')
+	count = 0
+	grade_sum = 0
+	for grade in grades:
+    		print(f'{grade:<10}')
+    		grade_sum += int(grade)
+    		count +=1
+
+	print(f'{"Total":<10}{"Count":>10}{"Average":>10}')
+	print(f'{grade_sum:<10}{count:>10}{grade_sum/count:>10.2f}')
