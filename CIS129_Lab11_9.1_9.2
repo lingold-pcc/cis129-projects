@@ -5,18 +5,20 @@
 
 
 
-# writes grades to a plain text file called grades
+# writes any number of grades to a text file
+print('Enter grades. type -1 to end')
+# writes a grade to the text file
 with open('grades.txt', mode='w') as grades:
-    grades.write('92\n')
-    grades.write('76\n')
-    grades.write('95\n')
-    grades.write('67\n')
-    grades.write('69\n')
-    grades.write('85\n')
-    grades.write('90\n')
-    grades.write('73\n')
-    grades.write('62\n')
-    grades.write('75\n')
+    while True:
+        try:
+            grade = int(input('Enter grade: '))
+            if grade == -1:
+                break
+            else:
+                grades.write(f'{str(grade)}\n')
+
+        except ValueError:
+            print('Input must be an integer. Please try again.')
 
 
 # reads from the text file and prints the grades, total, count, and average
@@ -25,9 +27,9 @@ with open('grades.txt', mode='r') as grades:
 	count = 0
 	grade_sum = 0
 	for grade in grades:
-    		print(f'{grade:<10}')
+    		print(f'{int(grade):<10}')
     		grade_sum += int(grade)
     		count +=1
 
-	print(f'{"Total":<10}{"Count":>10}{"Average":>10}')
-	print(f'{grade_sum:<10}{count:>10}{grade_sum/count:>10.2f}')
+	print(f'{"Total":<10}{"Count":^10}{"Average":>10}')
+	print(f'{grade_sum:<10}{count:^10}{grade_sum/count:>10.2f}')
