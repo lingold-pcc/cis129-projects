@@ -6,4 +6,16 @@
 import csv
 with open('grades.csv', mode='w', newline='') as grades:
     writer = csv.writer(grades)
-    writer.writerow(['firstname', 'lastname', 85, 90, 93])
+
+    print('Enter first name, last name, and three exam grades in a comma separated list. Type done to end.')
+
+    while True:
+            info = input('Enter grade: ')
+            if info.lower() == 'done':
+                break
+            else:
+                try:
+                    firstname, lastname, exam1grade, exam2grade, exam3grade = info.split(', ')
+                    writer.writerow([str(firstname), str(lastname), int(exam1grade), int(exam2grade), int(exam3grade)])
+                except ValueError:
+                    print('Invalid input, please try again')
